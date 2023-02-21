@@ -4,10 +4,12 @@
  *main - prints _putchar, followed by a new line.
  *Return: 0 on success
  */
-int main(void) {
+int main(void)
+{
 	char *str = "_putchar";
 
-	while(*str) {
+	while (*str)
+	{
 		_putchar(*str);
 		str++;
 	}
