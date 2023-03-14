@@ -1,132 +1,54 @@
-##C - malloc, free
-		
+C - More malloc, free
+In this project, I learned about using exit, calloc, and realloc in C.
 
-		
-####TASKS
-		
+Tests ✔️
+tests: Folder of test files. Provided by Holberton School.
+Header File 📁
+holberton.h: Header file containing prototypes for all functions written in the project.
+File	Prototype
+0-malloc_checked.c	void *malloc_checked(unsigned int b);
+1-string_nconcat.c	char *string_nconcat(char *s1, char *s2, unsigned int n);
+2-calloc.c	char *string_nconcat(char *s1, char *s2, unsigned int n);
+3-array_range.c	int *array_range(int min, int max);
+100-realloc.c	void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size);
+Tasks 📃
+0. Trust no one
 
-		
-####[0. Float like a butterfly, sting like a bee](0-create_array.c)
-		
+0-malloc_checked.c: C function that returns a pointer to a newly-allocated space in memory using malloc.
+If malloc fails, the function causes normal process termination with a status value of 98.
+1. string_nconcat
 
-		
-- Write a function that creates an array of chars, and initializes it with a specific char.
-		
+1-string_nconcat.c: C function that returns a pointer to a newly-allocated space in memory containing the concatenation of two strings.
+The returned pointer contains s1 followed by the first n bytes of s2, null-terminated.
+If n is greater than or equal to the length of s2, the entire string s2 is used.
+If NULL is passed, the function treats the parameter as an empty string.
+If the function fails - returns NULL.
+2. _calloc
 
-		
-- Prototype: char *create_array(unsigned int size, char c);
-		
-- Returns NULL if size = 0
-		
-- Returns a pointer to the array, or NULL if it fails
-		
+2-calloc.c: C function that returns a pointer to a newly-allocated space in memory for an array, using malloc.
+Allocates memory for an array of nmemb elements of size bytes each.
+The memory is set to zero.
+If nmemb = 0, size = 0, or the function fail - returns NULL.
+3. array_range
 
-		
-####[1. The woman who has no imagination has no wings](1-strdup.c)
-		
+3-array_range.c: C function that returns a pointer to a newly-allocated space in memory containing an array of integers.
+The array contains all the values from parameters min to max, inclusive, ordered from min to max.
+If min > max or the function fails - returns NULL.
+4. _realloc
 
-		
-- Write a function that returns a pointer to a newly allocated space in memory, which contains a copy of the string given as a parameter.
-		
+100-realloc.c: C function that reallocates a memory block using malloc and free.
+The parameter ptr is a pointer to the memory previously allocated with a call to malloc: malloc(old_size).
+The paramter old_size is the size, in bytes, of the allocated space for ptr.
+The paramter new_size is the new size, in bytes, of the new memory block.
+The contens of ptr are copied to the newly-allocated space in the range from the start of ptr up to the minimum of old_size and new_size.
+If new_size > old_size, the "added" memory is not initialized.
+If new_size == old_size, the function returns ptr.
+If ptr is NULL, the call is equivalent to malloc(new_size) for all values of old_size and new_size.
+If new_size = 0 and ptr is not NULL, the call is equivalent to free(ptr) and the function returns NULL.
+5. We must accept finite disappointment, but never lose infinite hope
 
-		
-- Prototype: char *_strdup(char *str);
-		
-- The _strdup() function returns a pointer to a new string which is a duplicate of the string str. Memory for the new string is obtained with malloc, and can be freed with free.
-		
-- Returns NULL if str = NULL
-		
-- On success, the _strdup function returns a pointer to the duplicated string. It returns NULL if insufficient memory was available
-		
-
-		
-#### [2. He who is not courageous enough to take risks will accomplish nothing in life](2-str_concat.c)
-		
-
-		
-- Write a function that concatenates two strings.
-		
-
-		
-- Prototype: char str_concat(char s1, char s2);
-		
-- The returned pointer should point to a newly allocated space in memory which contains the contents of s1, followed by the contents of s2, and null terminated
-		
-if NULL is passed, treat it as an empty string
-		
-- The function should return NULL on failure
-		
-
-		
-####[3. If you even dream of beating me you'd better wake up and apologize](3-alloc_grid.c)
-		
-
-		
-- Write a function that returns a pointer to a 2 dimensional array of integers.
-		
-
-		
-- Prototype: int **alloc_grid(int width, int height);
-		
-- Each element of the grid should be initialized to 0
-		
-- The function should return NULL on failure
-		
-- If width or height is 0 or negative, return NULL
-		
-
-		
-####[4. It's not bragging if you can back it up](4-free_grid.c)
-		
-
-		
-Write a function that frees a 2 dimensional grid previously created by your alloc_grid function.
-		
-
-		
-Prototype: void free_grid(int **grid, int height);
-		
-Note that we will compile with your alloc-grid.c file. Make sure it compiles.
-		
-
-		
-####[5. It isn't the mountains ahead to climb that wear you out; it's the pebble in your shoe](100-argstostr.c)
-		
-
-		
-- Write a function that concatenates all the arguments of your program.
-		
-
-		
-- Prototype: char *argstostr(int ac, char **av);
-		
-- Returns NULL if ac == 0 or av == NULL
-		
-- Returns a pointer to a new string, or NULL if it fails
-		
-- Each argument should be followed by a \n in the new string  
-		
-
-		
-####[6. I will show you how great I am] (101-strtow.c)
-		
-
-		
-- Write a function that splits a string into words.
-		
-
-		
-- Prototype: char **strtow(char *str);
-		
-- The function returns a pointer to an array of strings (words)
-		
-- Each element of this array should contain a single word, null-terminated
-		
-- The last element of the returned array should be NULL
-		
-- Words are separated by spaces
-		
-- Returns NULL if str == NULL or str == ""
-		
-- If your function fails, it should return NULL
-
+101-mul.c: C program that multiplies two positive numbers.
+Usage: mul num1 num2.
+The function assumes num1 and num2 are passed in base 10.
+Prints the result followed by a new line.
+If the number of arguments is incorrect or either of num1 or num2 contains non-digits, the function prints Error followed by a new line and exits with a status of 98.
